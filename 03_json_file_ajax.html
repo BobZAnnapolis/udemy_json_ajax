@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>03 JSON file ajax</title>
+  </head>
+  <body>
+
+<div>
+<h3 style="text-align: center;">multiple JSON objects in a file example</h3>
+<p>bring up webtools -> console</p>
+<p>To get this to work, in FireFox, uri: about:config toggle toggle.fileuri.strict_origin_policy to false - then refresh this file</p>
+<p>Hit refresh to see script results below & in a console</p><br><br>
+<p>set uri: about:config toggle security.fileuri.strict_origin_policy back to true when done</p>
+</div>
+
+<div class="oput">ajax.responseText(local_file) : <span id = jsondata></span></div><br>
+
+<script type="text/javascript">
+  var myContainer = "";
+  var a = new XMLHttpRequest();
+  console.log("new XMLHttpRequest : " + a);
+  // open a connection - connect to local file - ready state changes after this call
+  a.open("GET", "03generated.json", true);
+  // had to add this to get code to work like the video
+  a.overrideMimeType("application/json");
+  // after this executes - inspect variable - you SHOULD see all the data in ResponseText
+  // ALSO had to change about:config security.fileuri.strict_origin_policy to false befoe it worked w/o errors
+  a.send();
+
+  console.log("ajax.ResponseText : " + JSON.stringify(a.responseText));
+  document.getElementById("jsondata").innerHTML = a.responseText;
+
+</script>
+
+  </body>
+</html>

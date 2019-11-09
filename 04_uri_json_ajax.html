@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>04 uri ajax json</title>
+  </head>
+  <body>
+
+<div>
+<h3 style="text-align: center;">ajax from uri json</h3>
+<p>bring up webtools -> console</p>
+<p>To get this to work, in FireFox, uri: about:config toggle toggle.fileuri.strict_origin_policy to false - then refresh this file</p>
+<p>Hit refresh to see script results below & in a console</p><br><br>
+<p>set uri: about:config toggle security.fileuri.strict_origin_policy back to true when done</p>
+</div>
+
+<div class="oput">json Source : <span id = "jsonsrc"></span></div><br>
+<div class="oput">ajax.responseText(local_file) : <span id = "jsondata"></span></div><br>
+
+<script type="text/javascript">
+  var myContainer = "";
+  var a = new XMLHttpRequest();
+  var jsonSrc = "https://api.myjson.com/bins/12h0a4";
+  document.getElementById("jsonsrc").innerHTML = jsonSrc;
+  // open a connection - connect to local file - ready state changes after this call
+
+  a.open("GET", jsonSrc, true);
+  a.onreadystatechange = function() {
+    console.log("a.onreadystatechange changed to : " + a.readyState);
+    if (a.readyState == 4) {
+      var obj = JSON.parse(this.responseText);
+      console.log("STATE == 4 : responeText has been retrieved...hopefully :" + JSON.stringify(obj));
+      var myContainer = "";
+      for (i = 0; i < obj.length; i++) {
+        myContainer += (obj[i].name.first + " " + obj[i].name.last + " " + obj[i].age + "<br>");
+      }
+      console.log("stringify(a.responseText)" + obj);
+      document.getElementById("jsondata").innerHTML = myContainer;
+    }
+  };
+  // had to add this to get code to work like the video
+  a.overrideMimeType("application/json");
+  // after this executes - inspect variable - you SHOULD see all the data in ResponseText
+  // ALSO had to change about:config security.fileuri.strict_origin_policy to false befoe it worked w/o errors
+  a.send();
+
+</script>
+
+  </body>
+</html>

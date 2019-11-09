@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>02 multiple JSONB objects</title>
+  </head>
+  <body>
+
+<div>
+<h3 style="text-align: center;">multiple JSON objects handling</h3>
+<p>bring up webtools -> console</p>
+<p>Hit refresh to see script results</p>
+<p>display 1 object, then also loop thru all objects displaying first and last name</p>
+</div>
+
+<div class="oput">console.log(jsonData) : <span id = jsondata></span></div><br>
+<div class="oput">console.log(JSON.parse(jsonData)) : <span id = jsonparse></span></div><br>
+<div class="oput">console.log(stringify(jsonData)) : <span id = stringify></span></div><br>
+<div class="oput">console.log(obj[1].name.first,obj[1].name.last) : <span id = firstlast1></span></div><br>
+<div class="oput">loop thru all objs - first, last) : <span id = loop></span></div><br>
+
+<script type="text/javascript">
+  var jsonData = '[{"_id":"5dc5a81b6065137f1a0b741f","index":0,"age":39,"eyeColor":"blue","name":{"first":"Sherri","last":"Woods"}},{"_id":"5dc5a81b3bfbaa9c167cc5de","index":1,"age":25,"eyeColor":"grey","name":{"first":"Rosemary","last":"Knox"}},{"_id":"5dc5a81b6c59db582795d107","index":2,"age":38,"eyeColor":"grey","name":{"first":"Esperanza","last":"Cole"}},{"_id":"5dc5a81bfaededde34616158","index":3,"age":35,"eyeColor":"grey","name":{"first":"George","last":"Stephens"}},{"_id":"5dc5a81b2ce0747b689cb85e","index":4,"age":21,"eyeColor":"brown","name":{"first":"Farmer","last":"Decker"}},{"_id":"5dc5a81bcad71ba0bf073fc3","index":5,"age":23,"eyeColor":"grey","name":{"first":"Horne","last":"Berger"}},{"_id":"5dc5a81b7a9ebd82e39dac82","index":6,"age":29,"eyeColor":"green","name":{"first":"Wells","last":"Foreman"}},{"_id":"5dc5a81ba71e0f4cc51ff957","index":7,"age":29,"eyeColor":"blue","name":{"first":"Hobbs","last":"Fisher"}}]';
+  // puts it into a usable data structure where we can access the elements using dot notation
+  var obj = JSON.parse(jsonData);
+  // essentially restores the original JSON object
+  var strObj = JSON.stringify(obj);
+  document.getElementById("jsondata").innerHTML = jsonData;
+  document.getElementById("jsonparse").innerHTML = obj;
+  document.getElementById("stringify").innerHTML = strObj;
+  document.getElementById("firstlast1").innerHTML = obj[1].name.first + " " + obj[1].name.last;
+  var myContainer = "";
+  for (i = 0; i < obj.length; i++) {
+    myContainer += (obj[i].name.first + " " + obj[i].name.last + "<br>");
+  }
+  document.getElementById("loop").innerHTML = myContainer;
+  console.log("console.log(jsonData) : " + jsonData);
+  console.log("obj=JSON.parse(jsonData), console.log(obj) : " + obj);
+  console.log("obj=JSON.parse(jsonData), console.log(JSON.stringify(obj)) : " + strObj);
+  console.log("console.log(obj[1].name.first + ' ' + obj[1].name.last)) : " + obj[1].name.first + " " + obj[1].name.last);
+
+</script>
+
+  </body>
+</html>

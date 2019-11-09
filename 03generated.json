@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "5dc5cf54e0a0503e46bc7179",
+    "index": 0,
+    "age": 21,
+    "eyeColor": "grey",
+    "name": {
+      "first": "Geneva",
+      "last": "Whitaker"
+    }
+  },
+  {
+    "_id": "5dc5cf5484c6ba3c2fc128f0",
+    "index": 1,
+    "age": 20,
+    "eyeColor": "brown",
+    "name": {
+      "first": "Mayer",
+      "last": "Moreno"
+    }
+  },
+  {
+    "_id": "5dc5cf5408650d5f953886a3",
+    "index": 2,
+    "age": 37,
+    "eyeColor": "grey",
+    "name": {
+      "first": "Mccarty",
+      "last": "Patel"
+    }
+  },
+  {
+    "_id": "5dc5cf547344b8bbce5f2266",
+    "index": 3,
+    "age": 35,
+    "eyeColor": "grey",
+    "name": {
+      "first": "Katheryn",
+      "last": "Stevens"
+    }
+  },
+  {
+    "_id": "5dc5cf54b3b6afa9f86db536",
+    "index": 4,
+    "age": 32,
+    "eyeColor": "green",
+    "name": {
+      "first": "Melody",
+      "last": "Hickman"
+    }
+  },
+  {
+    "_id": "5dc5cf548f3b8c4db7052cab",
+    "index": 5,
+    "age": 27,
+    "eyeColor": "blue",
+    "name": {
+      "first": "Aline",
+      "last": "Howe"
+    }
+  }
+]

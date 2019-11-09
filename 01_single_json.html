@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JSON Object</title>
+  </head>
+  <body>
+
+<div>
+<h3 style="text-align: center;">single JSON object handling</h3>
+<p>bring up webtools -> console</p>
+<p>Hit refresh to see script results</p>
+</div>
+
+<div class="oput">console.log(jsonData) : <span id = jsondata></span></div>
+<div class="oput">console.log(JSON.parse(jsonData)) : <span id = jsonparse></span></div>
+<div class="oput">console.log(stringify(jsonData)) : <span id = stringify></span></div>
+
+<script type="text/javascript">
+  var jsonData = '{"id":"57354d34a06fc02a734c1432","index":"6","age":28,"eye color":"blue","name":{"first":"Rosario","last":"Good"}}';
+  // puts it into a usable data structure where we can access the elements using dot notation
+  var obj = JSON.parse(jsonData);
+  // essentially restores the original JSON object
+  var strObj = JSON.stringify(obj);
+  document.getElementById("jsondata").innerHTML = jsonData;
+  document.getElementById("jsonparse").innerHTML = obj;
+  document.getElementById("stringify").innerHTML = strObj;
+  console.log("console.log(jsonData) : " + jsonData);
+  console.log("obj=JSON.parse(jsonData), console.log(obj) : " + obj);
+  console.log("obj=JSON.parse(jsonData), console.log(JSON.stringify(obj)) : " + strObj);
+
+</script>
+
+  </body>
+</html>
