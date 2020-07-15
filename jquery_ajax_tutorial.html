@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery34 Ajax Live Weather API</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+  </head>
+  <body style="margin-left: 40px; font-family: Arial, Helvetica, sans-serif;">
+
+<table>
+  <tr>
+    <td>City</td>
+    <td><input type="text" id="txtCity"></td>
+  </tr>
+  <tr>
+    <td>Country</td>
+    <td><input type="text" id="txtCountry"></td>
+  </tr>
+</table>
+<input type="button"  onclick="getWeather()" id="btnGetWeather" value="Get Weather Data">
+
+<br><br>
+
+<div id="resultDiv">
+
+</div>
+
+  </body>
+  <script type="text/javascript" src="assets/jquery341.min.js"></script>
+  <script type="text/javascript">
+     // http://api.openweathermap.org/data/2.5/weather?q=tucson,usa&APPID=051993bf043070288d8f7039ac4d4774
+     var APPID="&APPID=051993bf043070288d8f7039ac4d4774";
+
+    function getWeather() {
+      var city = document.getElementById('txtCity').value;
+      var country = document.getElementById('txtCountry').value;
+      var resultElement = document.getElementById('resultDiv');
+      var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + ',' + country + '&APPID=051993bf043070288d8f7039ac4d4774';
+
+      $.ajax( {
+        url: url,
+        method: 'get',
+        dataType : 'json',
+        success : function (data) {
+          resultElement.innerHTML = ('<br />Weather for ' + data.name + ',' + data.sys.country +
+                        '<br />Main : ' + data.weather[0].main +
+                        '<br/>Description: ' + data.weather[0].description);
+        },
+        error : function () {
+          console.log("FUCKING online tutorials " + url + requestData);
+        }
+      });
+    }
+
+  </script>
+</html>
